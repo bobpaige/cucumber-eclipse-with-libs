@@ -16,7 +16,7 @@ When you open the feature file (`src/test/resources/features/CustomerInquiry.fea
 
 Further, if you execute the `CucumberRunner` class as a JUnit test, it finds the step definitions in the .jar file and runs. But if you right-click in the .feature file and select "Run as -> Cucumber Feature", it doesn't find them and suggests you add an implementation.
 
-If, OTOH, you copy steps-lib/src/main/java/com/steps/MySteps.java to src/main/java/com/steps/, the step definitions will be found.
+If, OTOH, you copy `steps-lib/src/main/java/com/steps/MySteps.java` to `src/main/java/com/steps/`, the step definitions will be found.
 
 ## The Big Question
 "Should the Cucumber-Eclipse plugin support step definitions in separate libraries?" The docs imply it is possible, but I'm not finding that to be true.
