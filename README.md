@@ -14,6 +14,8 @@ Next, import the top-level project into Eclipse. The subproject shouldn't be vis
 
 When you open the feature file (`src/test/resources/features/CustomerInquiry.feature`) in Eclipse with the Cucumber-Eclipse plugin, you will see that all the steps are highlighted in yellow because the plugin does not find my step definitions in the separate library.
 
+Further, if you execute the `CucumberRunner` class as a JUnit test, it finds the step definitions in the .jar file and runs. But if you right-click in the .feature file and select "Run as -> Cucumber Feature", it doesn't find them and suggests you add an implementation.
+
 If, OTOH, you copy steps-lib/src/main/java/com/steps/ to src/main/java/com/steps/, the step definitions will be found.
 
 ## The Big Question
