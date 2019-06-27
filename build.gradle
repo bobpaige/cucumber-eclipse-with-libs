@@ -1,0 +1,56 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}  
+
+plugins {
+    id "java"
+    id "eclipse"
+    id "maven"
+}
+
+//eclipse.dependsOn cleaneclipse
+
+repositories {
+    mavenCentral()
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.8.5'
+
+    // lombok
+    compileOnly "org.projectlombok:lombok:1.18.4"
+    testAnnotationProcessor "org.projectlombok:lombok:1.18.4"
+    annotationProcessor "org.projectlombok:lombok:1.18.4"
+    
+    // Cucumber-java v2 dependencies
+    compile 'io.cucumber:cucumber-picocontainer:4.4.0'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.9.4'
+    compile 'io.cucumber:cucumber-java:4.4.0'
+    compile 'io.cucumber:cucumber-junit:4.4.0'
+    compile 'junit:junit:4.12'
+    compile 'org.assertj:assertj-core:3.10.0'
+
+    // subproject of steps
+    compile files("steps-lib/build/libs/steps-lib.jar")
+}
+
+// add Cucumber nature
+eclipse.project {
+    natures "cucumber.eclipse.steps.jdt.stepsNature"
+    buildCommand "cucumber.eclipse.steps.jdt.stepsBuilder"
+}
+
+// set the gradle version
+wrapper{
+    gradleVersion='4.10.2'
+    distributionUrl="https://services.gradle.org/distributions/gradle-4.10.2-bin.zip"
+}
+
